@@ -1,0 +1,9 @@
+{
+  "name": "fend-weather-journal-app",
+  "version": "1.0.0",
+  "dependencies": {
+    "express": "latest",
+    "body-parser": "latest",
+    "cors": "latest"
+  }
+}
