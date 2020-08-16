@@ -6,7 +6,7 @@
     <title>Weather Journal</title>
     <script src="https://kit.fontawesome.com/26eb599f43.js" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css?family=Oswald:400,600,700|Ranga:400,700&display=swap" rel="stylesheet">
-    <link href="../styles/styles.css" rel="stylesheet">
+    <link href="../styles/main.css" rel="stylesheet">
 </head>
 <body>
     <div id="container">
@@ -19,7 +19,7 @@
         </div>
         <div class="destination-date">
             <label id="date-text" for="date-entry">When are you traveling?</label>
-            <input type="date" id="date-entry" name="trip-start" value="2020-08-15" min="2020-08-15" max="2025-01-01">
+            <input type="date" id="date-entry" name="trip-start" value="" min="" max="2025-01-01">
         </div>
         <button id="submit-add-trip" type="submit">Add Trip</button>
         <div id="existing-trips"></div>
@@ -31,5 +31,10 @@
             <a href="#"><i class="fas fa-envelope-square"></i></a>
         </footer>
     </div>
+    <script>
+      let today = new Date().toISOString().substr(0, 10);
+      document.querySelector('#date-entry').value = today;
+      document.querySelector('#date-entry').min = today;
+    </script>
 </body>
 </html>
