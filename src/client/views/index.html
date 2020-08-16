@@ -4,32 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather Journal</title>
+    <script src="https://kit.fontawesome.com/26eb599f43.js" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css?family=Oswald:400,600,700|Ranga:400,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../styles/style.scss">
+    <link href="../styles/styles.css" rel="stylesheet">
 </head>
 <body>
-    <div id="app">
-        <div class="holder headline">
-            <h1>Weather Journal App</h1>
+    <div id="container">
+        <header>
+            <h1>Udacity Travel Planner</h1>
+        </header>
+        <div class="destination-zip">
+            <label id='zip-text' for="zip-entry">What is the zip code of your destination?</label>
+            <input type="text" id="zip-entry" maxlength="5" placeholder="ex. 60601">
         </div>
-        <div class="holder zip">
-            <label for="zip">Enter U.S. zip code here</label>
-            <input type="text" id="zip" maxlength="5" placeholder="ex. 60601">
+        <div class="destination-date">
+            <label id="date-text" for="date-entry">When are you traveling?</label>
+            <input type="date" id="date-entry" name="trip-start" value="2020-08-15" min="2020-08-15" max="2025-01-01">
         </div>
-        <div class="holder feel">
-            <label for="feelings">How are you feeling today?</label>
-            <textarea class="myInput" id="feelings" placeholder="Enter your feelings here" rows="9" cols="50"></textarea>
-        </div>
-        <button id="generate" type="submit"> Generate </button>
-        <div class="holder entry">
-            <div class="title">Most Recent Entry</div>
-            <div id="entryHolder">
-                <div id="date"></div>
-                <div id="temp"></div>
-                <div id="content"></div>
-            </div>
-        </div>
+        <button id="submit-add-trip" type="submit">Add Trip</button>
+        <div id="existing-trips"></div>
+        <footer>
+            <h3 class="footer-title">Ivan Olmo 2020</h3>
+            <a href="https://www.facebook.com/"><i class="fab fa-facebook-square"></i></a>
+            <a href="https://twitter.com/"><i class="fab fa-twitter-square"></i></a>
+            <a href="https://www.linkedin.com/"><i class="fab fa-linkedin"></i></a>
+            <a href="#"><i class="fas fa-envelope-square"></i></a>
+        </footer>
     </div>
-    <script src="../js/app.js" type="text/javascript"></script>
 </body>
 </html>

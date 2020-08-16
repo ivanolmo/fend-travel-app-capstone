@@ -1,0 +1,46 @@
+footer {
+    grid-area: footer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    letter-spacing: 0;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: #393f4d;
+    color: #d9d9d9;
+    border-radius: 4px;
+}
+
+.footer-title {
+    font-size: 12px;
+    margin: 0 5px;
+    padding-top: 5px;
+}
+
+.fa-facebook-square {
+    color: #3b5998;
+    background: #ffffff;
+}
+
+.fa-twitter-square {
+    color: #55acee;
+    background: #ffffff;
+}
+
+.fa-linkedin {
+    color: #0e76a8;
+    background: #ffffff;
+}
+
+.fa-envelope-square {
+    background: #d44638;
+    color: #c6c6c6;
+}
+
+i.fab,
+i.fas {
+    line-height: 10px;
+    border-radius: 10px;
+    margin-right: 4px;
+}
