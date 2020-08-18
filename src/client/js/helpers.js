@@ -26,27 +26,21 @@ const postData = async (url = '', data = {}) => {
   }
 };
 
-// function to clear input forms
-const clearForms = () => {
-  document.getElementById('city-entry').value = '';
-  document.getElementById('departure-date').value = '';
-}
-
 // append trip information to index.html as a div element
 const appendTrip = (trip) => {
   const tripDate = trip.date;
 
   const remaining = daysLeft(tripDate);
 
-  let tripContainer = document.getElementById('existing-trips');
-  let newTrip = document.createElement('div');
+  const tripContainer = document.getElementById('existing-trips');
+  const newTrip = document.createElement('div');
 
   newTrip.className = 'trip-card';
 
   newTrip.innerHTML =
     `<img src="${trip.image}" class="trip-image" alt="trip image">
-    <p class="trip-name">Your upcoming trip to ${trip.name}</p>
-    <p class="trip-temp">The current weather is ${trip.temp}&#8457;</p>
+    <p class="trip-name">Trip to ${trip.name}</p>
+    <p class="trip-temp">The temperature forecast is ${trip.temp}&#8457;</p>
     <p class="trip-days">Your trip is in <span class="days-left">${remaining}</span> days!</p>`
 
   tripContainer.appendChild(newTrip);
@@ -61,4 +55,16 @@ const daysLeft = (date) => {
   return differenceInTime / (1000 * 3600 * 24)
 }
 
-export { getData, postData, appendTrip };
+// function to make sure user input trip date is not in the past
+const validateTripDate = (date) => {
+  const todayLocal = new Date(new Date().getTime() - new Date().getTimezoneOffset() * 60 * 1000).toISOString().substr(0,10);
+  return todayLocal > date;
+}
+
+// function to clear input forms after submit
+const clearForms = () => {
+  document.getElementById('city-entry').value = '';
+  document.getElementById('departure-date').value = '';
+}
+
+export { getData, postData, appendTrip, validateTripDate, daysLeft };
