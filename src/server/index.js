@@ -1,9 +1,5 @@
-// Setup environment variables
-const dotenv = require('dotenv');
-dotenv.config();
-
 // Setup empty JS object to act as endpoint for all routes
-projectData = {};
+let projectData = [];
 
 // Initialize all dependencies
 const express = require('express');
@@ -31,17 +27,15 @@ const listening = () => {
 
 // Routes
 // get route to retrieve data from object
-app.get('/api/get', (request, response) => {
-    response.status(200).send(projectData);
+app.get('/api', (req, res) => {
+    res.status(200).send(projectData);
 });
 
-// post route to store the data for new entry in existing object
-app.post('/api/post', (request, response) => {
-    projectData['date'] = request.body.date;
-    projectData['temp'] = request.body.temp;
-    projectData['location'] = request.body.location;
-    projectData['content'] = request.body.content;
 
+// post route to store the data for new trip in existing trips object
+app.post('/api/post', (request, response) => {
+    const trip = request.body;
+    projectData.push(trip);
     response.status(201).send(projectData);
 });
 
