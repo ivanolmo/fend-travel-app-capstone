@@ -12,15 +12,15 @@
         <header>
             <h1>Udacity Travel Planner</h1>
         </header>
-        <div class="destination-zip">
-            <label id='zip-text' for="zip-entry">What is the zip code of your destination?</label>
-            <input type="text" id="zip-entry" maxlength="5" placeholder="ex. 60601">
+        <div class="destination-city">
+            <label class="trip-info" for="city-entry">What is your destination?</label>
+            <input type="text" id="city-entry" placeholder="ex. Chicago">
         </div>
         <div class="destination-date">
-            <label id="date-text" for="date-entry">When are you traveling?</label>
-            <input type="date" id="date-entry" name="trip-start" value="" min="" max="2025-01-01">
+            <label class="trip-info" for="departure-date">What is your departure date?</label>
+            <input type="date" id="departure-date" name="trip-start" min="" max="2025-01-01">
         </div>
-        <button id="submit-add-trip" type="submit">Add Trip</button>
+        <button class="button" id="submit-add-trip" type="submit"><span>Add Trip </span></button>
         <div id="existing-trips"></div>
         <footer>
             <h3 class="footer-title">Ivan Olmo 2020</h3>
@@ -31,9 +31,11 @@
         </footer>
     </div>
     <script>
-      let today = new Date().toISOString().substr(0, 10);
-      document.querySelector('#date-entry').value = today;
-      document.querySelector('#date-entry').min = today;
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/service-worker.js');
+        });
+      }
     </script>
 </body>
 </html>

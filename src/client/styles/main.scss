@@ -17,7 +17,7 @@ body {
     display: grid;
     grid-template:
         'header' 1fr
-        'zip' 3fr
+        'city' 2fr
         'date' 3fr
         'button' 1fr
         'existing' 4fr
@@ -38,24 +38,23 @@ h1 {
     font-size: 2em;
 }
 
-.destination-zip {
-    grid-area: zip;
+.destination-city {
+    grid-area: city;
     margin-top: 40px;
-    /*padding: 20px;*/
     display: flex;
     flex-direction: column;
+    max-height: 100px;
 }
 
-#zip-text,
-#date-text {
+.trip-info {
     padding: 10px 0 5px 0;
 }
 
 .destination-date {
     grid-area: date;
-    /*padding: 20px;*/
     display: flex;
     flex-direction: column;
+    max-height: 100px;
 }
 
 #submit-add-trip {
@@ -80,14 +79,51 @@ input {
     font-family: 'Oswald', sans-serif;
     border: none;
     border-radius: 4px;
+    transition: all 0.5s;
+
+    &:hover {
+        background: #1a1d23;
+    }
 }
 
-button {
+.button {
     grid-area: button;
     width: 100%;
+    height: 70px;
     background: #393f4d;
     font-size: 26px;
     border: none;
     border-radius: 4px;
     box-shadow: 2px 4px 5px #444;
+    transition: all 0.5s;
+    cursor: pointer;
+
+    &:hover {
+        background: #1a1d23;
+    }
+
+    & span {
+        cursor: pointer;
+        display: inline-block;
+        position: relative;
+        transition: 0.5s;
+    }
+
+    & span:after {
+        content: '\00bb';
+        position: absolute;
+        opacity: 0;
+        top: 0;
+        right: -20px;
+        transition: 0.5s;
+    }
+
+    &:hover span {
+        padding-right: 25px;
+    }
+
+    &:hover span:after {
+        opacity: 1;
+        right: 0;
+    }
 }
