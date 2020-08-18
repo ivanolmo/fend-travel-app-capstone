@@ -8,12 +8,9 @@ module.exports = merge(common, {
     devServer: {
         host: "localhost",
         port: "8080",
-        proxy: [
-            {
-                context: [],
-                target: 'http://localhost:9000'
-            }
-        ]
+        proxy: {
+            '/api': 'http://localhost:9000'
+        }
     },
     module: {
         rules: [
